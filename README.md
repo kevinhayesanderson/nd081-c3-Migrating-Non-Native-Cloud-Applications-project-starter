@@ -81,7 +81,13 @@ The service bus queue is used for decoupling the updating of data from sending o
 
 For Azure Function, the consumption plan is chosen to minimize cost and as the it is a simple notification task.
 
-For Azure App service, it is cheaper than on-premise solution and we don't have to worry about the infrastructure, since the app doest require much computaional resourses, I have gone with B1 plan.
+For Azure Function App, Azure Web App and Azure App service, the selected plan is cheaper than on-premise solution and we don't have to worry about the infrastructure, since the app doest require much computaional resourses, I have gone with B1 plan with scale instances of 3.
+
+For Azure Postgres Database, i have chosen Single Server instead of Flexible Server option to reduce cost since in flexible server the cost is 2x for both compute and storage.
+
+For Azure Service Bus, i have chosed the standard tier to accomodate for 13M ops per month and it has max message size of 256kb, which are sufficient for given requirements.
+
+
 
 
 The architecture works as follows: 
