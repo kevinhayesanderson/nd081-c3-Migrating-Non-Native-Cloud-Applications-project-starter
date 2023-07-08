@@ -72,13 +72,19 @@ Complete a month cost analysis of each Azure resource to give an estimate total 
 
 ## Architecture Explanation
 The architecture consists of four major parts: a PostgreSQL database, a webapp, a service bus queue, and a service bus trigger function app.
+
 The database is used for persisting data.
+
 The webapp is used for displaying and altering data.
+
 The service bus queue is used for decoupling the updating of data from sending out notification emails.
+
 For Azure Function, the consumption plan is chosen to minimize cost and as the it is a simple notification task.
+
 For Azure App service, it is cheaper than on-premise solution and we don't have to worry about the infrastructure, since the app doest require much computaional resourses, I have gone with B1 plan.
 
-It works as follows: 
+
+The architecture works as follows: 
 
 1.An administrator fills out a web form that contains the message they wish to send to conference participants.
 
