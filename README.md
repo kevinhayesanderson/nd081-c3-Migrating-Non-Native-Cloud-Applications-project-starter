@@ -68,15 +68,24 @@ Complete a month cost analysis of each Azure resource to give an estimate total 
 | *Azure Function App* | See Azure App Service Plan        |              |
 | *Azure Web App* | See Azure App Service Plan        |              |
 | *Azure App Service Plan* | B1        | 1031.943 INR per month             |
+|*Total Monthly Cost*||5200 INR or $63 per month |
 
 ## Architecture Explanation
 The architecture consists of four major parts: a PostgreSQL database, a webapp, a service bus queue, and a service bus trigger function app.
 The database is used for persisting data.
 The webapp is used for displaying and altering data.
 The service bus queue is used for decoupling the updating of data from sending out notification emails.
+For Azure Function, the consumption plan is chosen to minimize cost and as the it is a simple notification task.
+For Azure App service, it is cheaper than on-premise solution and we don't have to worry about the infrastructure, since the app doest require much computaional resourses, I have gone with B1 plan.
+
 It works as follows: 
+
 1.An administrator fills out a web form that contains the message they wish to send to conference participants.
+
 2.This kicks off two things: the database is updated and a message is placed on the queue
+
 3.The service bus trigger function app is constantly listening to the queue.
-When there is a message on the queue, the function app picks it up and sends emails to participants.
-The database is then updated to inform that messages were sent out successfully.
+
+4.When there is a message on the queue, the function app picks it up and sends emails to participants.
+
+5.The database is then updated to inform that messages were sent out successfully.
