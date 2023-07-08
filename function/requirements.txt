@@ -1,0 +1,24 @@
+# DO NOT include azure-functions-worker in this file
+# The Python Worker is managed by Azure Functions platform
+# Manually managing azure-functions-worker may cause unexpected issues
+
+azure-functions
+azure-common
+azure-core
+azure-servicebus
+certifi
+charset-normalizer
+idna
+isodate
+msrest
+oauthlib
+psycopg2-binary
+python-http-client
+requests
+requests-oauthlib
+sendgrid
+six
+starkbank-ecdsa
+typing_extensions
+uamqp
+urllib3
